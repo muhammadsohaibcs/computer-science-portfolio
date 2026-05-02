@@ -1,0 +1,14 @@
+{
+  "operator_id": "OPERATOR_PILOT_01",
+  "public_key_pem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAk/7CczMJAqBKtcQWMw0sn0PYFXBgr226aVHzeez27Rg=\n-----END PUBLIC KEY-----\n",
+  "roles": [
+    "pilot"
+  ],
+  "allowed_commands": [
+    "EMERGENCY_STOP",
+    "LAND",
+    "MOVE",
+    "STATUS"
+  ],
+  "status": "active"
+}

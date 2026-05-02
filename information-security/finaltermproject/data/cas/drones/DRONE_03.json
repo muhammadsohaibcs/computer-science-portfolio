@@ -1,0 +1,17 @@
+{
+  "drone_id": "DRONE_03",
+  "public_key_pem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAUGzrr0shuJyXghMZz7HwvftWQ66dQvpZQrco21YCOcM=\n-----END PUBLIC KEY-----\n",
+  "capabilities": [
+    "MOVE",
+    "LAND",
+    "STATUS",
+    "EMERGENCY_STOP"
+  ],
+  "allowed_commands": [
+    "MOVE",
+    "LAND",
+    "STATUS",
+    "EMERGENCY_STOP"
+  ],
+  "status": "active"
+}

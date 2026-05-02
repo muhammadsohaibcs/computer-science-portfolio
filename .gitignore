@@ -1,0 +1,48 @@
+# Compiled outputs
+*.class
+*.exe
+*.obj
+*.com
+*.o
+*.out
+*.pyc
+__pycache__/
+*.pycache/
+.vscode/
+
+# Build artifacts
+*.ppm
+*.ppm
+*.bmp
+target/
+
+# Data / DB files (keep CSVs, ignore binary DBs)
+*.sqlite
+*.db
+*.ser
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment / secrets
+.env
+*.pem
+*.key
+*.p12
+
+# Audit / runtime data
+*.jsonl
+data/cas/
+data/drones/
+data/operators/
+
+# Dependencies
+node_modules/
+package-lock.json
+
+# Uploads
+uploads/

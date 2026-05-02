@@ -1,0 +1,32 @@
+from urllib.request import urlopen
+from bs4 import BeautifulSoup
+import ssl
+
+# Ignore SSL certificate errors
+ctx = ssl.create_default_context()
+ctx.check_hostname = False
+ctx.verify_mode = ssl.CERT_NONE
+
+
+url = input('Enter - ')
+position = input('Enter - ')
+count = input('Enter - ')
+html = urlopen(url, context=ctx).read()
+soup = BeautifulSoup(html, "html.parser")
+last =" "
+c=0
+while (c != int(count)):
+    p=1
+    tags = soup('a')
+    for tag in tags:
+        if p==int(position):
+            last = tag.contents[0]
+            print(tag.get("href" , None))
+            html = urlopen(tag.get("href" , None), context=ctx).read()
+            soup = BeautifulSoup(html, "html.parser")
+            p=1
+            break
+        p+=1
+    c+=1
+        
+print(last)

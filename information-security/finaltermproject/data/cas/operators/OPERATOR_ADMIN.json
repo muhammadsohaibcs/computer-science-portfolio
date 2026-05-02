@@ -1,0 +1,15 @@
+{
+  "operator_id": "OPERATOR_ADMIN",
+  "public_key_pem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEApZC1AOLQJMGw/1AilOjRoAPfhe0DkLADZn9jJMI2XAs=\n-----END PUBLIC KEY-----\n",
+  "roles": [
+    "admin"
+  ],
+  "allowed_commands": [
+    "CONFIGURE",
+    "EMERGENCY_STOP",
+    "LAND",
+    "MOVE",
+    "STATUS"
+  ],
+  "status": "active"
+}

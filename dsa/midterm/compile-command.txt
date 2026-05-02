@@ -1,0 +1,1 @@
+g++ Node.cpp LinkedList.cpp NodeBST.cpp NodeStack.cpp Stack.cpp Queue.cpp BST.cpp project.cpp -o project

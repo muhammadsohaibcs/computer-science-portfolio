@@ -1,0 +1,97 @@
+# Cryptographic Configuration for SDRCAS
+# Defines algorithm choices, key sizes, time tolerances, and post-quantum options
+# Requirements: 1.1, 12.4
+
+# Cryptographic Algorithms
+algorithms:
+  # Hash algorithm for data integrity and audit chain
+  hash: "SHA256"
+  
+  # Digital signature algorithm for command signing
+  signature: "Ed25519"
+  
+  # Authenticated encryption algorithm for command sealing
+  encryption: "AES-256-GCM"
+  
+  # Key exchange algorithm for secure channel establishment
+  key_exchange: "X25519"
+  
+  # Post-quantum algorithms (used when post_quantum.enabled is true)
+  post_quantum:
+    # Key Encapsulation Mechanism
+    kem: "Kyber"
+    # Post-quantum signature scheme
+    signature: "Dilithium"
+
+# Key Sizes (in bytes)
+key_sizes:
+  # Symmetric encryption key size (256 bits)
+  symmetric_key: 32
+  
+  # Nonce size for replay protection (256 bits for high uniqueness)
+  nonce: 32
+  
+  # Hash output size (SHA-256)
+  hash: 32
+  
+  # GCM nonce size (standard 96 bits)
+  gcm_nonce: 12
+  
+  # GCM authentication tag size (128 bits)
+  gcm_tag: 16
+
+# Time Tolerances (in seconds)
+timing:
+  # Default command validity duration
+  command_validity: 5
+  
+  # Acceptable clock skew between systems
+  timestamp_tolerance: 30
+  
+  # Operator session duration before re-authentication required
+  session_duration: 3600
+  
+  # Grace period for key rotation (old keys remain valid)
+  key_rotation_grace_period: 86400
+  
+  # Nonce cleanup interval (remove expired nonces)
+  nonce_cleanup_interval: 300
+
+# Post-Quantum Cryptography Options
+post_quantum:
+  # Enable hybrid classical + post-quantum mode
+  enabled: false
+  
+  # Kyber security level (512, 768, or 1024)
+  kyber_level: 768
+  
+  # Dilithium security level (2, 3, or 5)
+  dilithium_level: 3
+  
+  # Require post-quantum for all operations (if false, use hybrid mode)
+  require_pq: false
+
+# Security Parameters
+security:
+  # Use constant-time comparison for cryptographic operations
+  constant_time_compare: true
+  
+  # Minimum entropy bits for key generation
+  min_entropy_bits: 256
+  
+  # Enable hardware-backed key storage (TPM/Secure Element)
+  hardware_backed_keys: false
+  
+  # Key derivation function iterations (for password-based encryption)
+  kdf_iterations: 100000
+
+# Performance Tuning
+performance:
+  # Enable cryptographic operation caching
+  enable_caching: true
+  
+  # Maximum cache size for public keys
+  key_cache_size: 1000
+  
+  # Cache TTL in seconds
+  cache_ttl: 3600

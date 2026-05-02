@@ -1,0 +1,278 @@
+# System Configuration for SDRCAS
+# Defines CAS address, ports, rate limits, retry parameters, and audit log location
+# Requirements: 6.3, 6.4
+
+# Command Authorization Server (CAS) Configuration
+cas:
+  # CAS server address
+  host: "localhost"
+  
+  # CAS server port
+  port: 8443
+  
+  # CAS API endpoint
+  api_endpoint: "/api/v1"
+  
+  # Enable TLS for CAS connections
+  tls_enabled: true
+  
+  # TLS certificate path (for mutual TLS)
+  tls_cert_path: "data/cas/certificates/cas_cert.pem"
+  
+  # TLS private key path
+  tls_key_path: "data/cas/certificates/cas_key.pem"
+  
+  # CA certificate for client verification
+  ca_cert_path: "data/cas/certificates/ca_cert.pem"
+
+# Network Configuration
+network:
+  # Connection timeout in seconds
+  connection_timeout: 10
+  
+  # Read timeout in seconds
+  read_timeout: 30
+  
+  # Write timeout in seconds
+  write_timeout: 30
+  
+  # Keep-alive interval in seconds
+  keepalive_interval: 60
+  
+  # Maximum concurrent connections
+  max_connections: 100
+  
+  # Enable connection pooling
+  connection_pooling: true
+  
+  # Connection pool size
+  pool_size: 20
+
+# Rate Limiting Configuration
+rate_limiting:
+  # Enable rate limiting
+  enabled: true
+  
+  # Rate limit window in seconds
+  window: 60
+  
+  # Maximum requests per window per source
+  max_requests: 100
+  
+  # Rate limit for command requests specifically
+  command_rate_limit:
+    window: 60
+    max_requests: 50
+  
+  # Rate limit for telemetry updates
+  telemetry_rate_limit:
+    window: 60
+    max_requests: 200
+  
+  # Rate limit for authentication attempts
+  auth_rate_limit:
+    window: 300
+    max_requests: 5
+  
+  # Action on rate limit exceeded
+  on_exceeded: "reject"  # Options: reject, queue, throttle
+
+# Retry Configuration
+retry:
+  # Enable automatic retries
+  enabled: true
+  
+  # Maximum retry attempts
+  max_attempts: 3
+  
+  # Initial retry delay in seconds
+  initial_delay: 1
+  
+  # Maximum retry delay in seconds
+  max_delay: 30
+  
+  # Exponential backoff multiplier
+  backoff_multiplier: 2.0
+  
+  # Jitter factor (0.0 to 1.0)
+  jitter: 0.1
+  
+  # Retry on specific error types
+  retry_on_errors: ["timeout", "connection_error", "temporary_failure"]
+
+# Audit Logging Configuration
+audit:
+  # Enable audit logging
+  enabled: true
+  
+  # Audit log file location
+  log_file: "data/audit_log.jsonl"
+  
+  # Audit log format (jsonl, json, csv)
+  log_format: "jsonl"
+  
+  # Enable blockchain-based audit trail
+  blockchain_enabled: true
+  
+  # Blockchain data directory
+  blockchain_dir: "data/blockchain"
+  
+  # Log rotation settings
+  rotation:
+    enabled: true
+    max_size_mb: 100
+    max_files: 10
+    compress: true
+  
+  # Events to log
+  log_events:
+    - "command_requested"
+    - "command_authorized"
+    - "command_denied"
+    - "command_executed"
+    - "command_failed"
+    - "authentication_success"
+    - "authentication_failure"
+    - "session_created"
+    - "session_expired"
+    - "key_rotated"
+    - "key_revoked"
+    - "failsafe_triggered"
+    - "security_violation"
+  
+  # Include sensitive data in logs (disable in production)
+  include_sensitive_data: false
+  
+  # Audit log verification interval in seconds
+  verification_interval: 3600
+
+# Storage Configuration
+storage:
+  # Base data directory
+  data_dir: "data"
+  
+  # Drone data directory
+  drone_dir: "data/drones"
+  
+  # Operator data directory
+  operator_dir: "data/operators"
+  
+  # CAS data directory
+  cas_dir: "data/cas"
+  
+  # Nonce storage directory
+  nonce_dir: "data/drone_nonces"
+  
+  # Enable encryption at rest
+  encryption_at_rest: true
+  
+  # Storage backend (file, database)
+  backend: "file"
+
+# Database Configuration (if using database backend)
+database:
+  # Database type (postgresql, mysql, sqlite)
+  type: "sqlite"
+  
+  # Database connection string
+  connection_string: "sqlite:///data/sdrcas.db"
+  
+  # Connection pool size
+  pool_size: 10
+  
+  # Enable connection pooling
+  pooling_enabled: true
+
+# Monitoring and Telemetry
+monitoring:
+  # Enable system monitoring
+  enabled: true
+  
+  # Metrics collection interval in seconds
+  metrics_interval: 60
+  
+  # Metrics export format (prometheus, json)
+  metrics_format: "json"
+  
+  # Metrics export endpoint
+  metrics_endpoint: "/metrics"
+  
+  # Health check endpoint
+  health_check_endpoint: "/health"
+  
+  # Enable performance profiling
+  profiling_enabled: false
+
+# Failsafe Configuration
+failsafe:
+  # Maximum invalid commands before triggering failsafe
+  max_invalid_commands: 5
+  
+  # Communication loss timeout in seconds
+  communication_timeout: 120
+  
+  # Failsafe behavior (land, hover, return_to_base)
+  default_behavior: "hover"
+  
+  # Enable automatic recovery
+  auto_recovery: true
+  
+  # Recovery timeout in seconds
+  recovery_timeout: 300
+
+# Security Configuration
+security:
+  # Enable strict mode (fail on any security violation)
+  strict_mode: true
+  
+  # Maximum failed authentication attempts
+  max_auth_failures: 3
+  
+  # Account lockout duration in seconds
+  lockout_duration: 900
+  
+  # Enable IP whitelisting
+  ip_whitelist_enabled: false
+  
+  # Allowed IP addresses (if whitelisting enabled)
+  allowed_ips: []
+  
+  # Enable request signing
+  require_request_signing: true
+  
+  # Enable mutual TLS
+  mutual_tls: true
+
+# Logging Configuration
+logging:
+  # Log level (DEBUG, INFO, WARNING, ERROR, CRITICAL)
+  level: "INFO"
+  
+  # Log file location
+  log_file: "logs/sdrcas.log"
+  
+  # Enable console logging
+  console_logging: true
+  
+  # Log format
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  
+  # Log rotation
+  rotation:
+    enabled: true
+    max_size_mb: 50
+    max_files: 5
+
+# Development/Testing Configuration
+development:
+  # Enable debug mode
+  debug: false
+  
+  # Enable test mode (relaxed security for testing)
+  test_mode: false
+  
+  # Mock external services
+  mock_services: false
+  
+  # Enable verbose logging
+  verbose: false

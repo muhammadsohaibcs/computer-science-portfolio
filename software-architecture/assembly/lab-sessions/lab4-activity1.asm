@@ -1,0 +1,13 @@
+TITLE Lab4_1  CHECK FLAGS 
+.MODEL SMALL  
+.CODE 
+MAIN PROC 
+     MOV AX,4000H  
+     ADD AX, AX   
+     SUB AX, 0FFFFH  
+     NEG AX  
+     INC AX 
+     MOV AH,4CH 
+     INT 21H  
+MAIN ENDP  
+END MAIN 

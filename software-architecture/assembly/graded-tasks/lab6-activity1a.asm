@@ -1,0 +1,29 @@
+.MODEL SMALL
+.STACK 100H
+
+.DATA
+ARRAY1 DB 10,20,30,40,50,60,70,80,90,100
+ARRAY2 DB 10 DUP(?)
+
+.CODE
+MAIN PROC
+    MOV AX, @DATA
+    MOV DS, AX
+
+    MOV BX, OFFSET ARRAY1
+    MOV DI, OFFSET ARRAY2
+    MOV SI, 0
+    MOV CX, 10
+
+COPY_LOOP:
+    MOV AL, [BX + SI]   ; source access is valid
+    MOV [DI], AL        ; destination access fixed
+    INC SI
+    INC DI
+    LOOP COPY_LOOP
+
+    MOV AH, 4CH
+    INT 21H
+MAIN ENDP
+
+END MAIN

@@ -1,0 +1,92 @@
+.gray{
+    background-color: gray;
+    height: 40px;
+    width: 100vw;
+    position: fixed;
+    top: 0px;
+    margin-bottom: 50px;
+}
+.input::placeholder{
+    color: white;
+}
+.first{
+    background-color: rgba(10, 84, 188, 0.973);
+    color: white ;
+    text-align: center;
+    width: 50vh;
+    display: inline-block;
+    padding: 10px;
+    height: 450px;
+}
+.input{
+    display: block;
+    background-color: rgba(18, 74, 152, 0.744);
+    margin: 5px;
+    padding: 10px;
+    border: none;
+    
+
+}
+.contact{
+    margin: 40px;
+}
+button{
+    margin: 40px;
+}
+.main{
+    margin: 100px;
+    height: 500px;
+}
+.second{
+    display: inline-block;
+    padding: 30px;
+
+}
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    
+}
+button{
+    background-color: rgba(18, 74, 152, 0.744);
+    color: white;
+    border: none;
+    padding: 5px;
+
+}
+.icons{
+    margin: 50px;
+    
+}
+.user{
+    margin: 30px;
+}
+.user>input{
+    padding: 10px;
+    width: 12rem;
+    box-shadow: .5px .5px 5px 5px gray;
+    border: none;
+}
+.icons>i{
+    margin: 5px;
+    
+}
+
+select{
+    padding:5px;
+    display: block;
+    margin-left: 30px; 
+    margin-bottom:16px ; 
+    inline-size: 15rem; 
+    border: none;
+    box-shadow: .5px .5px 5px 5px gray;
+}
+textarea{
+    margin-left: 30px;
+    width: 15rem;
+    border: none;
+    box-shadow: .5px .5px 5px 5px gray;
+    
+}

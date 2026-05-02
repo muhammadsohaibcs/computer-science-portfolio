@@ -1,0 +1,17 @@
+{
+  "subject": "OPERATOR_OBSERVER",
+  "public_key_pem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAO19LHHWeoUbYkkv6rf/EC7eYbmFwCgD8rUFDFZaCf6k=\n-----END PUBLIC KEY-----\n",
+  "issuer": "CAS",
+  "valid_from": 1765699481,
+  "valid_until": 1797235481,
+  "attributes": {
+    "entity_type": "operator",
+    "roles": [
+      "observer"
+    ],
+    "allowed_commands": [
+      "STATUS"
+    ]
+  },
+  "signature": "eae456f5702128aaf23e2ddb073cf320a6f18f55ec74370a7ea3388d2bd457637f74ae20cf732d9cb1eff6877c5a0664ad46dfa406c050adf10c957cbba36b0a"
+}

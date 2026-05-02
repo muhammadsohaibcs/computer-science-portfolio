@@ -1,0 +1,20 @@
+{
+  "subject": "OPERATOR_PILOT_02",
+  "public_key_pem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEA6Gp5o7gGS3r+eUsQLiRuIwiCqRDWXHTkpFrEFmmuaVw=\n-----END PUBLIC KEY-----\n",
+  "issuer": "CAS",
+  "valid_from": 1765699481,
+  "valid_until": 1797235481,
+  "attributes": {
+    "entity_type": "operator",
+    "roles": [
+      "pilot"
+    ],
+    "allowed_commands": [
+      "EMERGENCY_STOP",
+      "LAND",
+      "MOVE",
+      "STATUS"
+    ]
+  },
+  "signature": "0a2b4f5b92c7fc5ca37cfba622e8e4a465b5be6e0de798d8f4d83e7455bc5d0fe3b8b24aab6687dd62dae8605e7d2670c86002a774d90c3ef5acbed9d8dbbc01"
+}

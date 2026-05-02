@@ -1,0 +1,17 @@
+{
+  "subject": "DRONE_01",
+  "public_key_pem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAOsGtc9HWKiF4v0G3rFvTkOfpm9t2pKpfxc6Gr2kJV4E=\n-----END PUBLIC KEY-----\n",
+  "issuer": "CAS",
+  "valid_from": 1765699481,
+  "valid_until": 1797235481,
+  "attributes": {
+    "device_type": "drone",
+    "capabilities": [
+      "MOVE",
+      "LAND",
+      "STATUS",
+      "EMERGENCY_STOP"
+    ]
+  },
+  "signature": "7a63d38bf786d6fd3b02a607114f1b7754add35bdfbe663c7ef2a415993a88f4a7cb1717a5f2873b069a08695acffc48aa3e48b521f0fc61670da6a5f0503b00"
+}

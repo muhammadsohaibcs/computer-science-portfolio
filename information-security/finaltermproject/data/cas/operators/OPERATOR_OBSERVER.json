@@ -1,0 +1,11 @@
+{
+  "operator_id": "OPERATOR_OBSERVER",
+  "public_key_pem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAO19LHHWeoUbYkkv6rf/EC7eYbmFwCgD8rUFDFZaCf6k=\n-----END PUBLIC KEY-----\n",
+  "roles": [
+    "observer"
+  ],
+  "allowed_commands": [
+    "STATUS"
+  ],
+  "status": "active"
+}

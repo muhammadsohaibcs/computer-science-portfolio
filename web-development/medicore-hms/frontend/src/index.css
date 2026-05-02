@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --sidebar-w: 256px;
+    --header-h: 60px;
+    --radius: 10px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    @apply bg-slate-50 text-slate-800;
+  }
+  .dark body { @apply bg-[#0d1117] text-slate-200; }
+
+  *:focus-visible {
+    outline: 2px solid #3b97f3;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  /* ─── Card ─── */
+  .card {
+    @apply bg-white dark:bg-slate-800/80 rounded-xl border border-slate-200/80 dark:border-slate-700/60 shadow-card;
+  }
+
+  /* ─── Field ─── */
+  .field {
+    @apply w-full px-3 py-2.5 rounded-lg text-sm
+      border border-slate-200 dark:border-slate-600
+      bg-white dark:bg-slate-800
+      text-slate-900 dark:text-slate-100
+      placeholder-slate-400 dark:placeholder-slate-500
+      focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent
+      disabled:opacity-50 disabled:cursor-not-allowed
+      transition-all duration-150;
+  }
+  .field-error { @apply border-red-400 dark:border-red-500 ring-2 ring-red-300 dark:ring-red-800; }
+
+  /* ─── Label ─── */
+  .label { @apply block text-xs font-600 text-slate-500 dark:text-slate-400 mb-1.5 uppercase tracking-wide; }
+
+  /* ─── Badge ─── */
+  .badge { @apply inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-600; }
+
+  /* ─── Scrollbar ─── */
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { @apply bg-transparent; }
+  ::-webkit-scrollbar-thumb { @apply bg-slate-300 dark:bg-slate-600 rounded-full; }
+  ::-webkit-scrollbar-thumb:hover { @apply bg-slate-400 dark:bg-slate-500; }
+
+  /* ─── Page wrapper ─── */
+  .page-wrapper { @apply max-w-7xl mx-auto px-1; }
+
+  /* ─── Section title ─── */
+  .section-title {
+    font-family: 'Syne', system-ui, sans-serif;
+    @apply text-2xl font-700 text-slate-900 dark:text-white tracking-tight;
+  }
+
+  /* ─── Table ─── */
+  .data-table { @apply w-full; }
+  .data-table thead tr {
+    @apply border-b border-slate-100 dark:border-slate-700;
+  }
+  .data-table thead th {
+    @apply px-4 py-3 text-left text-2xs font-600 text-slate-500 dark:text-slate-400 uppercase tracking-wider whitespace-nowrap;
+  }
+  .data-table tbody tr {
+    @apply border-b border-slate-50 dark:border-slate-700/50 hover:bg-brand-50/40 dark:hover:bg-brand-950/20 transition-colors duration-100;
+  }
+  .data-table tbody td {
+    @apply px-4 py-3 text-sm text-slate-700 dark:text-slate-300;
+  }
+  .data-table tbody tr:last-child { @apply border-0; }
+}
+
+@layer utilities {
+  .font-600 { font-weight: 600; }
+  .font-700 { font-weight: 700; }
+  .font-800 { font-weight: 800; }
+
+  .text-balance { text-wrap: balance; }
+
+  /* Skeleton shimmer */
+  .skeleton {
+    @apply rounded-lg bg-gradient-to-r from-slate-100 via-slate-200 to-slate-100 dark:from-slate-800 dark:via-slate-700 dark:to-slate-800;
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+
+  /* Glass effect for modals */
+  .glass {
+    @apply backdrop-blur-sm bg-white/90 dark:bg-slate-900/90;
+  }
+
+  /* Sidebar active indicator */
+  .nav-active {
+    @apply text-brand-600 dark:text-brand-400 bg-brand-50 dark:bg-brand-950/50;
+  }
+  .nav-active::before {
+    content: '';
+    @apply absolute left-0 top-1/2 -translate-y-1/2 w-1 h-5 bg-brand-500 rounded-r-full;
+  }
+}

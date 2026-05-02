@@ -1,0 +1,36 @@
+.MODEL SMALL
+.STACK 100H
+
+.DATA
+STR1   DB "COMSATS", '$'
+OUTSTR DB 3 DUP('$')
+
+.CODE
+MAIN PROC
+    MOV AX, @DATA
+    MOV DS, AX
+
+    MOV SI, OFFSET STR1
+    ADD SI, 4
+
+    MOV DI, OFFSET OUTSTR
+    MOV CX, 2
+
+COPY_LOOP:
+    MOV AL, [SI]
+    MOV [DI], AL
+    INC SI
+    INC DI
+    LOOP COPY_LOOP
+
+    MOV BYTE PTR [DI], '$'
+
+    LEA DX, OUTSTR
+    MOV AH, 09H
+    INT 21H
+
+    MOV AH, 4CH
+    INT 21H
+MAIN ENDP
+
+END MAIN

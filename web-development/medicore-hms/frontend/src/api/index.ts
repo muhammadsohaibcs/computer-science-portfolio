@@ -1,0 +1,17 @@
+export { default as apiClient, clearTokens, getAccessToken, getRefreshToken, isAuthenticated, setTokens } from './client';
+export * as appointmentsApi from './appointments.api';
+export * as authApi from './auth.api';
+export * as billsApi from './bills.api';
+export * as dashboardApi from './dashboard.api';
+export * as departmentsApi from './departments.api';
+export * as doctorsApi from './doctors.api';
+export * as insuranceApi from './insurance.api';
+export * as inventoryApi from './inventory.api';
+export * as labResultsApi from './lab-results.api';
+export * as medicalRecordsApi from './medical-records.api';
+export * as patientsApi from './patients.api';
+export * as prescriptionsApi from './prescriptions.api';
+export * as roomsApi from './rooms.api';
+export * as servicesApi from './services.api';
+export * as staffApi from './staff.api';
+export * as suppliersApi from './suppliers.api';

@@ -1,0 +1,24 @@
+# Core cryptographic library for Ed25519, X25519, AES-GCM, HKDF
+# Used for: digital signatures, key exchange, AEAD encryption, key derivation
+cryptography==41.0.7
+
+# Property-based testing framework
+# Used for: testing universal properties across random inputs
+hypothesis==6.92.1
+
+# YAML parser for configuration files
+# Used for: loading crypto_config.yaml and system_config.yaml
+pyyaml==6.0.1
+
+# Testing framework
+# Used for: unit tests, integration tests, and test fixtures
+pytest==7.4.3
+
+# Post-quantum cryptography library (optional, for hybrid mode)
+# Used for: Kyber KEM and post-quantum key exchange
+# Note: May require system dependencies (liboqs)
+liboqs-python==0.8.0
+
+# Additional testing utilities
+pytest-cov==4.1.0  # Code coverage reporting
+pytest-timeout==2.2.0  # Test timeout management
